@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0" >
+    <title>管理平台</title>
+  </head>
+  <body>
+    <p>今年以来，烟台市公安局全速推进公安信息化建设，全面构建齐鲁“数据警务”品牌。近日，烟台“数据警务”突显奇功，公安信息化手段助力实战，相关警种部门通力合作，成功抓获一名潜逃20余年漂白身份命案逃犯！</p>
+    <br />
+    <p><img src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=145639359,3092505925&fm=173&s=A0FA5E870A22A2DE4EC489260300F040&w=640&h=689&img.JPEG" style="width: 40%;" alt="640*689" /></p>
+    <br />
+    <p><img src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=90141363,3140514476&fm=173&s=D2BA31C5485223DE364038160300F0C3&w=640&h=854&img.JPEG" alt="640*854" /></p>
+    <br />
+    <p>12月6日，烟台市公安局开发区分局在持续追捕在逃20余年的故意杀人案犯罪嫌疑人崔某时发现：该崔某的儿子原有户籍已注销，并改名为李某。</p>
+    <br />
+    <p>经过进一步工作，民警发现了李某在今年4月份的一条有价值活动轨迹线索。据此，烟台公安机关在“数据警务”的强力支撑下，开展了大量艰苦细致工作，对获取的全国范围内海量信息进行筛选、比对，对符合条件的可疑人员进行分析研判，最终确定了另一名姓李的黑龙江男子有重大嫌疑，很有可能就是在逃的命案逃犯崔某。</p>
+    <br />
+    <p><img src="http://fd.topitme.com/d/08/30/119720084605f3008do.jpg"  style="width: 1400px;" alt="3164*1740" /></p>
+    <br />
+    <p>12月7日6时许，烟台市公安局开发区分局追逃小组在黑龙江省哈尔滨市双城区一旅馆内将该李姓黑龙江男子截获。经确认，就是已"漂白"身份潜逃20余年的命案犯罪嫌疑人崔某。</p>
+    <script>
+        function placeHolderImg(){
+            var imgs = document.getElementsByTagName('img');
+            var cw = window.screen.width-20;
+            //document.documentElement.clientWidth;
+            for(var i = 0; i < imgs.length; i++){
+                var width = imgs[i].width;
+                var alt = imgs[i].getAttribute('alt').split('*');
+                var rWdith = alt[0];
+                var rHeight = alt[1];
+                //alert(cw);
+                if(width == '0' || width > cw ){
+                    if(rWdith > cw){
+                        imgs[i].style.width = cw + 'px';
+                        imgs[i].style.height = cw * rHeight / rWdith + 'px';
+                    }else{
+                        imgs[i].style.width = rWdith + 'px';
+                        imgs[i].style.height = rHeight + 'px';
+                    }
+                }else{
+                    imgs[i].style.height = width * rHeight / rWdith + 'px';
+                }
+            }
+            
+            xt_changecontentheight();
+        }
+    function resizeimg (img) {
+        var oldwidth = img.width
+        var oldheight = img.height
+        var maxwidth=window.screen.width - 20
+        if(img.width > maxwidth) {
+            img.style.width = maxwidth+'px'
+            img.style.height = (oldheight * (maxwidth/oldwidth))+'px'
+        }
+    }
+    function imgFunction () {
+        var objs = document.getElementsByTagName('img')
+        var imgScr = ''
+        for (var i=0;i<objs.length;i++) {
+            var img = objs[i];
+            var src = img.getAttribute('src')
+            imgScr = imgScr + src + '+'
+            resizeimg(img)
+            img.onclick = function() {
+                document.location = 'myweb:imageClick:' + this.src
+            }
+        }
+    }
+        placeHolderImg();
+        //imgFunction();
+    </script>
+</body>
+</html>
